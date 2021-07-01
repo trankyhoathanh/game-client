@@ -5,6 +5,7 @@ let user_from = 101
 let user_to = 109
 let sleep_result = 50
 let total_done = 0
+let unlimited = false
 
 let sockets = []
 
@@ -25,8 +26,8 @@ function sleep(milliseconds) {
 function task () {
     try {
         for (let i = user_from; i < user_to; i++ ) {
-            // let item_socket = io('ws://localhost:8081');
-            let item_socket = io('http://game.tranthanh92.com');
+            let item_socket = io('ws://localhost:8081');
+            // let item_socket = io('http://game.tranthanh92.com');
             item_socket.connect()
             item_socket.on('login_user_id_return', (output) => {
                 if (output.user) {
@@ -73,6 +74,12 @@ function task () {
                 } else {
                     total_done += 1
                     console.log(`Trả lời xong ${total_done}`)
+
+                    if (unlimited && output.user_id) {
+                        console.log(`Start tiếp ván mới ${output.user_id}`)
+                        item_socket.emit('login_user_id', { user_id : output.user_id });
+                    }
+                    
                 }
             })
 
