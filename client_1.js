@@ -5,7 +5,9 @@ let user_from = 101
 let user_to = 109
 let sleep_result = 50
 let total_done = 0
-let unlimited = false
+let unlimited = true
+// let socket_url = 'http://game.tranthanh92.com'
+let socket_url = 'ws://localhost:8081'
 
 let sockets = []
 
@@ -26,8 +28,7 @@ function sleep(milliseconds) {
 function task () {
     try {
         for (let i = user_from; i < user_to; i++ ) {
-            let item_socket = io('ws://localhost:8081');
-            // let item_socket = io('http://game.tranthanh92.com');
+            let item_socket = io(socket_url);
             item_socket.connect()
             item_socket.on('login_user_id_return', (output) => {
                 if (output.user) {
