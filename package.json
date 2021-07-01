@@ -1,0 +1,17 @@
+{
+  "name": "keobuabao",
+  "version": "1.0.0",
+  "description": "Thanh Tran Keo Bua Bao",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon client.js"
+  },
+  "author": "Thanh Tran",
+  "dependencies": {
+    "use-socket.io-client": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
