@@ -2,14 +2,14 @@ const io = require('socket.io-client');
 const lib_math = require('./lib/lib_math')
 let ahead = 'S'
 let user_from = 1
-let user_to = 501
-let sleep_result = 0
-let sleep_connect_before = 10
-let sleep_connect_after = 10
+let user_to = 151
+let sleep_result = 100
+let sleep_connect_before = 50
+let sleep_connect_after = 50
 let total_done = 0
 let unlimited = false
-// let socket_url = 'http://game.tranthanh92.com'
-let socket_url = 'ws://localhost:8081'
+let socket_url = 'http://game.tranthanh92.com'
+// let socket_url = 'ws://localhost:8081'
 
 let sockets = []
 
