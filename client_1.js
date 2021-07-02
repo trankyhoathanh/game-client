@@ -2,7 +2,7 @@ const io = require('socket.io-client');
 const lib_math = require('./lib/lib_math')
 let ahead = 'S'
 let user_from = 1
-let user_to = 99
+let user_to = 500
 let sleep_result = 50
 let total_done = 0
 let unlimited = false
@@ -41,9 +41,10 @@ function task () {
                             choose: getRandomInt(1,3)
                         }
                         console.log(`login_user_id_return ${item_send.user_id} ${item_send.room_trans} ${item_send.choose}`)
+                       
                         sleep(sleep_result)
                         item_socket.emit('send_choose', item_send);
-                        
+
                         // // Step này check null thì không làm gì nữa
                         // if (output.user.room_id && output.user.room_trans) {
                         //     let item_send = {
@@ -100,7 +101,7 @@ function task () {
         }
         
         for(let item of sockets) {
-            // sleep(sleep_result);
+            sleep(sleep_result);
             item.socket.connect();
             item.socket.emit('login_user_id', { user_id : item.user_id });
         }
