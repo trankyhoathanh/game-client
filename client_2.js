@@ -1,17 +1,22 @@
 const io = require('socket.io-client');
 const lib_math = require('./lib/lib_math')
-let ahead = 'S'
-let user_from = 151
-let user_to = 301
-let sleep_result = 100
-let sleep_connect_before = 50
-let sleep_connect_after = 50
+
+let ahead = 'T'
+let user_from = 1
+let user_to = 200
+let sleep_result = 50
+let sleep_connect_before = 10
+let sleep_connect_after = 10
 let total_done = 0
 let unlimited = false
 let socket_url = 'http://game.tranthanh92.com'
+// let socket_url = 'ws://game.tranthanh92.com'
+// let socket_url = 'ws://139.180.219.169'
 // let socket_url = 'ws://localhost:8081'
 
-let sockets = []
+// var subscribeSentAt = 0;
+
+// let sockets = []
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -84,10 +89,10 @@ function sleep(ms) {
                     }
                 }
             })
-            sockets.push({
-                socket: item_socket,
-                user_id: `${ahead}${lib_math.zeroFill(i,4)}`
-            })
+            // sockets.push({
+            //     socket: item_socket,
+            //     user_id: `${ahead}${lib_math.zeroFill(i,4)}`
+            // })
 
             await sleep(sleep_connect_before);
             item_socket.connect();
